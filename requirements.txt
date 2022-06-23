@@ -1,0 +1,9 @@
+Flask==2.1.2
+gunicorn
+itsdangerous==1.1.0
+Jinja2==3.1.2
+requests==2.28.0
+numpy==1.23.0
+scikit-learn==0.23.0
+pandas==1.4.2
+pickle5
