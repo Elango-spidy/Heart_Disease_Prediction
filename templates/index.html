@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spidy</title>
+
+    <style>
+      body {
+        background: url("../static/bg2.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      h2 {
+        font-size: 25px;
+        text-align: center;
+      }
+
+      #box {
+        border-radius: 60px;
+        border-color: 45px;
+        border-style: solid;
+        font-family: cursive;
+        text-align: center;
+        background-color: rgb(236, 160, 18);
+        font-size: medium;
+        position: absolute;
+        width: 700px;
+        bottom: 9%;
+        height: 850px;
+        right: 30%;
+        padding: 0px;
+        margin: 0px;
+        font-size: 14px;
+      }
+
+      #sex {
+        width: 99px;
+        height: 20px;
+        text-align: center;
+        border-radius: 14px;
+        font-size: 18px;
+      }
+
+      #sub {
+        background-color: rgb(109, 95, 192);
+        border-radius: 35px;
+        height: 30px;
+        font-size: 15px;
+      }
+
+      #age {
+        border-radius: 14px;
+        height: 20px;
+        font-size: 15px;
+        text-align: right;
+      }
+
+      #sex {
+        border-radius: 14px;
+        height: 20px;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      #cp {
+        border-radius: 14px;
+        height: 20px;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      #trestbps {
+        border-radius: 14px;
+        height: 20px;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      #chol {
+        border-radius: 14px;
+        height: 20px;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      #fbs {
+        border-radius: 14px;
+        height: 20px;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      #restecg {
+        border-radius: 14px;
+        height: 20px;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      #thalach {
+        border-radius: 14px;
+        height: 20px;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      #exang {
+        border-radius: 14px;
+        height: 20px;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      #exang {
+        border-radius: 14px;
+        height: 20px;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      #oldpeak {
+        border-radius: 14px;
+        height: 20px;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      #slope {
+        border-radius: 14px;
+        height: 20px;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      #ca {
+        border-radius: 14px;
+        height: 20px;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      #thal {
+        border-radius: 14px;
+        height: 20px;
+        font-size: 15px;
+        text-align: center;
+      }
+      .row {
+        display: flex;
+      }
+
+      .column {
+        flex: 50%;
+        padding: 10px;
+        height: 300px;
+      }
+      .row {
+        display: flex;
+      }
+
+      .column {
+        flex: 50%;
+        padding: 10px;
+        height: 300px;
+      }
+      .my-cta-button {
+        background: #f9f9f9;
+        border: 2px solid #000000;
+        border-radius: 1000px;
+        box-shadow: 3px 3px #8c8c8c;
+        margin-top: 10px;
+        padding: 10px 36px;
+        color: #000000;
+        display: inline-block;
+        font: italic bold 20px/1 "Calibri", sans-serif;
+        text-align: center;
+        position: relative;
+        bottom: -220px;
+      }
+      .footer{
+        position: relative;
+        bottom: -220px;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div style="color: rgb(0, 0, 0)">
+      <form action="{{ url_for('predict')}}" method="post">
+        <h2>HEART DISEASE PREDICTION</h2>
+        <br />
+        <div class="row">
+          <div class="column">
+            <h3>Gender of patient</h3>
+            <select name="sex" id="sex" required="required">
+              <option value="0">Male</option>
+              <option value="1">Female</option></select
+            ><br /><br />
+            <h3>Chest Pain Type</h3>
+            <select name="cp" id="cp" required="required">
+              <option value="0">Typical</option>
+              <option value="1">Asymptotic</option>
+              <option value="2">Nonanginal</option>
+              <option value="3">Nontypical</option></select
+            ><br /><br />
+            <h3>blood pressure</h3>
+            <input
+              id="trestbps"
+              name="trestbps"
+              placeholder="in mm hg"
+              required="required"
+            /><br /><br />
+            <h3>Serum cholestoral</h3>
+            <input
+              id="chol"
+              name="chol"
+              placeholder="in mg/dl"
+              required="required"
+            /><br /><br />
+            <h3>Fasting blood sugar > 120 mg/dl</h3>
+            <select name="fbs" id="fbs" required="required">
+              <option value="1">True</option>
+              <option value="0">False</option></select
+            ><br /><br />
+            <h3>Resting electrocardiographic results</h3>
+            <select name="restecg" id="restecg" required="required">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option></select
+            ><br /><br />
+          </div>
+          <div class="column">
+            <h3>Maximum heart rate achieved</h3>
+            <input
+              id="thalach"
+              name="thalach"
+              required="required"
+            /><br /><br />
+            <h3>Exercise induced angina</h3>
+            <select name="exang" id="exang" required="required">
+              <option value="1">Yes</option>
+              <option value="0">No</option></select
+            ><br /><br />
+            <h3>ST depression induced by exercise relative to rest</h3>
+            <input
+              id="oldpeak"
+              name="oldpeak"
+              required="required"
+            /><br /><br />
+            <h3>The slope of the peak exercise ST segment</h3>
+            <select name="slope" id="slope" required="required">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option></select
+            ><br /><br />
+            <h3>Number of major vessels</h3>
+            <select
+              name="ca"
+              id="ca"
+              aria-placeholder="(0-4) colored by flourosopy"
+              required="required"
+            >
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option></select
+            ><br /><br />
+            <h3>Thal</h3>
+            <select
+              name="thal"
+              id="thal"
+              aria-placeholder="(3 = normal; 6 = fixed defect; 7 = reversable defect)"
+              required="required"
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+            </select>
+          </div>
+        </div>
+        <br /><br />
+        <input type="submit" class="my-cta-button" value="Predict" />
+        <div class="footer">
+          <p class="footer-description">Made with ❤️ by Elango.</p>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
